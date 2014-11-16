@@ -8,7 +8,7 @@ from pprint import pprint
 
 from config import *
 from googleplay import GooglePlayAPI
-from helpers import sizeof_fmt, print_header_line, print_result_line
+from helpers import sizeof_fmt, print_header_line, print_result_line, print_result_json
 
 if (len(sys.argv) < 2):
     print "Usage: %s request [nb_results] [offset]" % sys.argv[0]
@@ -35,8 +35,6 @@ except:
     print "Error: something went wrong. Maybe the nb_res you specified was too big?"
     sys.exit(1)
 
-print_header_line()
 doc = message.doc[0]
 for c in doc.child:
-    print_result_line(c)
-
+    print_result_json(c)

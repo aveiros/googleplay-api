@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import base64
+import json
 import gzip
 import pprint
 import StringIO
@@ -25,6 +26,10 @@ class RequestError(Exception):
         self.value = value
     def __str__(self):
         return repr(self.value)
+
+class GooglePlayApplication:
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True)
 
 class GooglePlayAPI(object):
     """Google Play Unofficial API Class
