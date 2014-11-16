@@ -1,5 +1,5 @@
 from config import SEPARATOR
-from googleplay import Application
+from googleplay import GooglePlayApplication
 
 def encode_item(item):
     return unicode(item).encode('utf8')
